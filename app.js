@@ -2,18 +2,30 @@ $(document).ready(function() {
 
   function doSomething() {
     var d = Date.now();
-    var minutes = 25;
-    var seconds = 10;
-    setInterval(function() {
+    var minutes = 1;
+    var seconds = 1;
+    var interval = null;
+    var interval = setInterval(function() {
       seconds--;
-      console.log(seconds);
-      // change this so it adds a zero to the left if the seconds digit is one
       if (seconds === 0) {
-        console.log(seconds + "0");
-        seconds = 10;
+        if (minutes !== 0) {
+          console.log(minutes + ":" + seconds + "0");
+          seconds = 60;
+          minutes--;
+        }
+        else {
+          console.log(minutes + ":" + "0" + seconds);
+          console.log("done!");
+          clearInterval(interval);
+        }
+      }
+      else {
+        if (seconds < 10) {
+        console.log(minutes + ":" + "0" + seconds);
+        }
+        else console.log(minutes + ":" + seconds);
       }
     }, 1000)
-    console.log(d);
   }
 
   doSomething();
