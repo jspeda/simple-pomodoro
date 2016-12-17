@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css?family=Flamenco');
+
+body {
+  background: #76b852;
+  background: -webkit-linear-gradient(to left, #76b852 , #8DC26F);
+  background: linear-gradient(to left, #76b852 , #8DC26F);
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.titlecard {
+  font-size: 5em;
+  font-family: 'Flamenco', cursive;
+  text-align: center;
+  padding: 5%;
+  color: white;
+}
+
+.pombox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid white;
+  width: 500px;
+  height: 500px;
+}
+
+.timer {
+  height: 30%;
+  width: 80%;
+  border: 1px solid red;
+  margin: 5%;
+}
+
+.buttonbox-main {
+  display: flex;
+  justify-content: space-around;
+  color: white;
+}
+
+.buttonbox-second {
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+button {
+  background: none;
+  border: none;
+  font-size: 2em;
+  width: 80px;
+  margin: 8%;
+  color: white;
+
+}
