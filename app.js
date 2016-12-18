@@ -43,6 +43,10 @@ $('.stop').click(function() {
   $(".start").click(function() {
     doSomething()
     console.log('clicked');
+    // this works but only on the initial click, the values do not update every
+    // second.
+    $('.minutes').html(minutes);
+    $('.seconds').html(seconds);
   });
 
   $(".stop").click(function() {
