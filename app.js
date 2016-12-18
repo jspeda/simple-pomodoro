@@ -1,11 +1,17 @@
 $(document).ready(function() {
 
+var interval = null;
+var minutes = 1;
+var seconds = 1;
+
+var stopHasBeenClicked = false;
+$('.stop').click(function() {
+  stopHasBeenClicked = true;
+});
+
   function doSomething() {
-    var d = Date.now();
-    var minutes = 1;
-    var seconds = 1;
     var interval = null;
-    var interval = setInterval(function() {
+    interval = setInterval(function() {
       seconds--;
       if (seconds === 0) {
         if (minutes !== 0) {
@@ -19,16 +25,28 @@ $(document).ready(function() {
           clearInterval(interval);
         }
       }
+
+      else if (stopHasBeenClicked) {
+        clearInterval(interval);
+      }
+
       else {
         if (seconds < 10) {
         console.log(minutes + ":" + "0" + seconds);
         }
         else console.log(minutes + ":" + seconds);
       }
-    }, 1000)
+    }, 1000);
   }
 
-  doSomething();
+//figure out how to start and stop without losing scope stuff.
+  $(".start").click(function() {
+    doSomething()
+    console.log('clicked');
+  });
+
+  $(".stop").click(function() {
+  })
 
 
 
