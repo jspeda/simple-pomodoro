@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 var Clock = {
-  seconds: 1,
+  seconds: 60,
   minutes: 25,
 
   start: function() {
@@ -53,9 +53,9 @@ var Clock = {
   reset: function() {
     clearInterval(this.interval);
     this.minutes = 25;
-    this.seconds = 1;
+    this.seconds = 60;
     $(".minutes").html(this.minutes);
-    $(".seconds").html("0" + this.seconds);
+    $(".seconds").html("00");
   },
 
   add5: function() {
