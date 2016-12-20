@@ -1,57 +1,5 @@
 $(document).ready(function() {
 
-// var interval = null;
-// var minutes = 1;
-// var seconds = 1;
-//
-// var stopHasBeenClicked = false;
-// $('.stop').click(function() {
-//   stopHasBeenClicked = true;
-// });
-//
-//   function doSomething() {
-//     var interval = null;
-//     interval = setInterval(function() {
-//       seconds--;
-//       if (seconds === 0) {
-//         if (minutes !== 0) {
-//           console.log(minutes + ":" + seconds + "0");
-//           seconds = 60;
-//           minutes--;
-//         }
-//         else {
-//           console.log(minutes + ":" + "0" + seconds);
-//           console.log("done!");
-//           clearInterval(interval);
-//         }
-//       }
-//
-//       else if (stopHasBeenClicked) {
-//         clearInterval(interval);
-//       }
-//
-//       else {
-//         if (seconds < 10) {
-//         console.log(minutes + ":" + "0" + seconds);
-//         }
-//         else console.log(minutes + ":" + seconds);
-//       }
-//     }, 1000);
-//   }
-//
-// //figure out how to start and stop without losing scope stuff.
-//   $(".start").click(function() {
-//     doSomething()
-//     console.log('clicked');
-//     // this works but only on the initial click, the values do not update every
-//     // second.
-//     $('.minutes').html(minutes);
-//     $('.seconds').html(seconds);
-//   });
-//
-//   $(".stop").click(function() {
-//   })
-
 var Clock = {
   seconds: 1,
   minutes: 25,
@@ -94,7 +42,6 @@ var Clock = {
   },
 
   pause: function() {
-    var self = this;
     clearInterval(this.interval);
     delete this.interval;
   },
@@ -104,27 +51,22 @@ var Clock = {
   },
 
   reset: function() {
-    var self = this;
     clearInterval(this.interval);
-    self.minutes = 25;
-    self.seconds = 1;
-    $(".minutes").html(self.minutes);
-    $(".seconds").html("0" + self.seconds);
+    this.minutes = 25;
+    this.seconds = 1;
+    $(".minutes").html(this.minutes);
+    $(".seconds").html("0" + this.seconds);
   },
 
   add5: function() {
-    var self = this;
-    self.minutes += 5;
-    $(".minutes").html(self.minutes);
+    this.minutes += 5;
+    $(".minutes").html(this.minutes);
   },
 
   min5: function() {
-    var self = this;
-    if (self.minutes - 5 < 0) {
-    }
-    else {
-      self.minutes -= 5;
-      $(".minutes").html(self.minutes);
+    if (this.minutes - 5 >= 0) {
+      this.minutes -= 5;
+      $(".minutes").html(this.minutes);
     }
   }
 
