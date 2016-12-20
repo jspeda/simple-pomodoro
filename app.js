@@ -1,5 +1,7 @@
 $(document).ready(function() {
 
+var audio = new Audio("alarm.mp3");
+
 var Clock = {
   seconds: 60,
   minutes: 25,
@@ -21,8 +23,10 @@ var Clock = {
          $(".minutes").html(self.minutes);
          $(".seconds").html("0" + self.seconds);
          console.log(self.minutes + ":" + "0" + self.seconds);
+         audio.play();
          console.log("done!");
-         clearInterval(this.interval);
+         clearInterval(self.interval);
+         delete this.interval;
        }
      }
 
