@@ -94,6 +94,7 @@ var Clock = {
   },
 
   pause: function() {
+    var self = this;
     clearInterval(this.interval);
     delete this.interval;
   },
@@ -103,12 +104,30 @@ var Clock = {
   },
 
   reset: function() {
+    var self = this;
     clearInterval(this.interval);
     self.minutes = 25;
-    self.seconds = 0;
+    self.seconds = 1;
     $(".minutes").html(self.minutes);
-    $(".seconds").html(self.seconds + "0");
+    $(".seconds").html("0" + self.seconds);
+  },
+
+  add5: function() {
+    var self = this;
+    self.minutes += 5;
+    $(".minutes").html(self.minutes);
+  },
+
+  min5: function() {
+    var self = this;
+    if (self.minutes - 5 < 0) {
+    }
+    else {
+      self.minutes -= 5;
+      $(".minutes").html(self.minutes);
+    }
   }
+
 }
 
 $(".start").click(function() {
@@ -121,6 +140,14 @@ $(".stop").click(function() {
 
 $(".reset").click(function() {
   Clock.reset();
+});
+
+$(".plus5").click(function() {
+  Clock.add5();
+});
+
+$(".minus5").click(function() {
+  Clock.min5();
 })
 
 
