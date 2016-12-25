@@ -94,7 +94,6 @@ $(".plus5").click(function() {
 
 $(".minus5").click(function() {
   Clock.min5();
-})
-
+});
 
 });
